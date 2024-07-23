@@ -15,7 +15,7 @@ npm install mitt-vue
 
 ### useEventListener
 
-The `useEventListener` function allows you to listen to custom events in your React components. This will automatically create a suscription an unsuscription for the event in the component.
+The `useEventListener` function allows you to listen to custom events in your Vue components. This will automatically create a suscription an unsuscription for the event in the component.
 
 ```js
 useEventListener('customEvent', (data) => {
