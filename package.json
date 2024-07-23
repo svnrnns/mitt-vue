@@ -1,0 +1,66 @@
+{
+  "name": "mitt-vue",
+  "private": false,
+  "version": "1.0.0",
+  "description": "ghtweight utility for integrating mitt with Vue 2 and Vue 3",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/mitt-vue.umd.js",
+  "module": "./dist/mitt-vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mitt-vue.es.js",
+      "require": "./dist/mitt-vue.umd.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svnrnns/mitt-vue"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "vue3",
+    "event-emitter",
+    "mitt",
+    "event-management",
+    "vue-events",
+    "event-subscription",
+    "event-handling",
+    "vue-components",
+    "mitt-integration",
+    "event-listener",
+    "vue-utility",
+    "vue-event-emitter",
+    "event-emitters-in-vue",
+    "vue-hook-for-events",
+    "event-management-library",
+    "vue-event-handling",
+    "vue-event-system",
+    "event-bus-vue",
+    "vue-event-listener",
+    "vue2-event-handling",
+    "vue3-event-handling"
+  ],
+  "bugs": {
+    "url": "https://github.com/svnrnns/mitt-vue/issues"
+  },
+  "homepage": "https://github.com/svnrnns/mitt-vue",
+  "author": "seven rings (https://twitter.com/svnrnns)",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "mitt": "3.0.1",
+    "vue": "^2.6.0 || ^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "4.5.2",
+    "vite": "^5.2.11"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  }
+}
