@@ -23,12 +23,12 @@ useEventListener('customEvent', (data) => {
 });
 ```
 
-### eventEmit
+### useEventEmit
 
-The `eventEmit` function allows you to emit custom events.
+The `useEventEmit` function allows you to emit custom events.
 
 ```js
-eventEmit('customEvent', 'Hello, World!');
+useEventEmit('customEvent', 'Hello, World!');
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ For Vue 2, use mixins to manage event subscription and unsubscription.
 </template>
 
 <script>
-import { eventEmit, useEventListener } from 'mitt-vue';
+import { useEventEmit, useEventListener } from 'mitt-vue';
 
 export default {
   name: 'App',
@@ -62,7 +62,7 @@ export default {
   ],
   methods: {
     emitEvent() {
-      eventEmit('my-event', { foo: 'bar' });
+      useEventEmit('my-event', { foo: 'bar' });
     },
   },
 };
@@ -84,7 +84,7 @@ The function `useEventListener` works both for Options and Composition API, so y
 
 <script>
 import { ref } from 'vue';
-import { eventEmit, useEventListener } from 'mitt-vue';
+import { useEventEmit, useEventListener } from 'mitt-vue';
 
 export default {
   name: 'App',
@@ -96,7 +96,7 @@ export default {
     });
 
     function emitEvent() {
-      eventEmit('my-event', { foo: 'bar' });
+      useEventEmit('my-event', { foo: 'bar' });
     }
 
     return {
@@ -117,16 +117,16 @@ A function to listen for a custom event.
 | Param     | Type     | Nullable | Desc                                            |
 | --------- | -------- | -------- | ----------------------------------------------- |
 | eventName | string   | &cross;  | The name of the event to listen for             |
-| handler   | Function | &cross;  | The function to call when the event is emitted. |
+| callback  | Function | &cross;  | The function to call when the event is emitted. |
 
-### eventEmit
+### useEventEmit
 
 A function to emit a custom event.
 
-| Param     | Type   | Nullable | Desc                                   |
-| --------- | ------ | -------- | -------------------------------------- |
-| eventName | string | &cross;  | The name of the event to emit.         |
-| data      | any    | &cross;  | The data to pass to the event handler. |
+| Param     | Type   | Nullable | Desc                                    |
+| --------- | ------ | -------- | --------------------------------------- |
+| eventName | string | &cross;  | The name of the event to emit.          |
+| data      | any    | &cross;  | The data to pass to the event callback. |
 
 ## Contribution
 

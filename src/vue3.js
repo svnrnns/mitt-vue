@@ -1,12 +1,12 @@
 import emitter from './emitter';
 import { onMounted, onUnmounted } from 'vue';
 
-export function useEventListener(eventName, handler) {
+export function useEventListener(event, callback) {
   onMounted(() => {
-    emitter.on(eventName, handler);
+    emitter.on(event, callback);
   });
 
   onUnmounted(() => {
-    emitter.off(eventName, handler);
+    emitter.off(event, callback);
   });
 }
