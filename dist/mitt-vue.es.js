@@ -1,44 +1,45 @@
-import * as u from "vue";
-import { onMounted as f, onUnmounted as r } from "vue";
-function c(t) {
-  return { all: t = t || /* @__PURE__ */ new Map(), on: function(n, e) {
-    var o = t.get(n);
-    o ? o.push(e) : t.set(n, [e]);
-  }, off: function(n, e) {
-    var o = t.get(n);
-    o && (e ? o.splice(o.indexOf(e) >>> 0, 1) : t.set(n, []));
-  }, emit: function(n, e) {
-    var o = t.get(n);
-    o && o.slice().map(function(s) {
-      s(e);
-    }), (o = t.get("*")) && o.slice().map(function(s) {
-      s(n, e);
+import * as r from "vue";
+import { onMounted as f, onUnmounted as u } from "vue";
+function m(t) {
+  return { all: t = t || /* @__PURE__ */ new Map(), on: function(e, i) {
+    var n = t.get(e);
+    n ? n.push(i) : t.set(e, [i]);
+  }, off: function(e, i) {
+    var n = t.get(e);
+    n && (i ? n.splice(n.indexOf(i) >>> 0, 1) : t.set(e, []));
+  }, emit: function(e, i) {
+    var n = t.get(e);
+    n && n.slice().map(function(s) {
+      s(i);
+    }), (n = t.get("*")) && n.slice().map(function(s) {
+      s(e, i);
     });
   } };
 }
-const i = c();
-function a(t, n) {
-  i.emit(t, n);
+const o = m();
+function c(t, e) {
+  o.emit(t, e);
 }
-function m(t, n) {
+function p(t, e) {
   return {
-    mounted() {
-      i.on(t, n);
+    created() {
+      o.on(t, e.bind(this));
     },
-    destroyed() {
-      i.off(t, n);
+    beforeDestroy() {
+      o.off(t, e.bind(this));
     }
   };
 }
-function p(t, n) {
+function v(t, e) {
   f(() => {
-    i.on(t, n);
-  }), r(() => {
-    i.off(t, n);
+    o.on(t, e);
+  }), u(() => {
+    o.off(t, e);
   });
 }
-const d = u.version && u.version.startsWith("2.") ? m : p;
+const d = r.version && r.version.startsWith("3.") ? v : p, E = c;
 export {
-  a as eventEmit,
+  c as eventEmit,
+  E as useEventEmit,
   d as useEventListener
 };
