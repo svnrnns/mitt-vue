@@ -1,7 +1,7 @@
 {
   "name": "mitt-vue",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Lightweight utility for integrating mitt with Vue 2 and Vue 3",
   "license": "MIT",
   "type": "module",
