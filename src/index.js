@@ -5,8 +5,8 @@ import { useEventListener as vue3UseEventListener } from './vue3';
 
 // Detecta la versión de Vue y elige la función de listener apropiada
 const useEventListener =
-  Vue.version && Vue.version.startsWith('2.')
-    ? vue2UseEventListener
-    : vue3UseEventListener;
+  Vue.version && Vue.version.startsWith('3.')
+    ? vue3UseEventListener
+    : vue2UseEventListener;
 
 export { eventEmit, useEventListener };
