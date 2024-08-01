@@ -1,12 +1,12 @@
 import emitter from './emitter';
 
-export function useEventListener(eventName, handler) {
+export function useEventListener(event, callback) {
   return {
-    mounted() {
-      emitter.on(eventName, handler);
+    created() {
+      emitter.on(event, callback.bind(this));
     },
-    destroyed() {
-      emitter.off(eventName, handler);
+    beforeDestroy() {
+      emitter.off(event, callback.bind(this));
     },
   };
 }
