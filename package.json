@@ -1,17 +1,20 @@
 {
   "name": "mitt-vue",
   "private": false,
-  "version": "1.1.1",
+  "version": "2.0.1",
   "description": "Lightweight utility for integrating mitt with Vue 2 and Vue 3",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/mitt-vue.umd.js",
-  "module": "./dist/mitt-vue.es.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/mitt-vue.es.js",
-      "require": "./dist/mitt-vue.umd.js"
-    }
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./types": "./dist/types.d.ts"
   },
   "repository": {
     "type": "git",
@@ -49,7 +52,9 @@
   "author": "seven rings (https://twitter.com/svnrnns)",
   "scripts": {
     "dev": "vite build --watch",
-    "build": "vite build",
+    "build": "vite build && tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -58,6 +63,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "4.5.2",
+    "typescript": "^5.7.2",
     "vite": "^5.2.11"
   },
   "optionalDependencies": {

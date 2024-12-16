@@ -2,14 +2,12 @@ import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import { defineConfig } from 'vite';
 
-const packagename = 'mitt-vue';
-
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.js'),
-      name: packagename,
-      fileName: (format) => `${packagename}.${format}.js`,
+      entry: path.resolve(__dirname, 'src/index.ts'), // Updated to TS entry file
+      name: 'mitt-vue', // Use a static string for the package name
+      fileName: (format) => `index.${format}.js`, // Keep consistent naming
     },
     rollupOptions: {
       external: ['vue'],

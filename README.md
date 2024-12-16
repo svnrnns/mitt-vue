@@ -110,23 +110,34 @@ export default {
 
 ## API
 
-### useEventListener
+### Methods
 
-A function to listen for a custom event.
+#### useEventListener
+
+Emits an event with the given name and data.
 
 | Param     | Type     | Nullable | Desc                                            |
 | --------- | -------- | -------- | ----------------------------------------------- |
 | eventName | string   | &cross;  | The name of the event to listen for             |
 | callback  | Function | &cross;  | The function to call when the event is emitted. |
 
-### useEventEmit
+#### useEventEmit
 
-A function to emit a custom event.
+Registers event listeners for Vue 3 using lifecycle hooks.
 
 | Param     | Type   | Nullable | Desc                                    |
 | --------- | ------ | -------- | --------------------------------------- |
 | eventName | string | &cross;  | The name of the event to emit.          |
 | data      | any    | &cross;  | The data to pass to the event callback. |
+
+### Types
+
+These types can be imported through `mitt-vue/types`
+
+```ts
+export type EventMap = Record<EventType, unknown>;
+export type EventCallback = (...args: any[]) => void;
+```
 
 ## Contribution
 
