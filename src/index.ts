@@ -15,3 +15,7 @@ const useEventListener =
 const useEventEmit = eventEmit;
 
 export { eventEmit, useEventEmit, useEventListener };
+
+// TypeScript
+import { EventMap, EventCallback } from './types';
+export type { EventMap, EventCallback };

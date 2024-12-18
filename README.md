@@ -132,7 +132,13 @@ Registers event listeners for Vue 3 using lifecycle hooks.
 
 ### Types
 
-These types can be imported through `mitt-vue/types`
+These types can be imported this way:
+
+```js
+import type { EventMap } from 'mitt-vue';
+```
+
+Here is the list of types used in the package.
 
 ```ts
 export type EventMap = Record<EventType, unknown>;
