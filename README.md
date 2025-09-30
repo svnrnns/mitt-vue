@@ -46,7 +46,7 @@ For Vue 2, use mixins to manage event subscription and unsubscription.
 </template>
 
 <script>
-import { useEventEmit, useEventListener } from 'mitt-vue';
+import { useEventEmit as eventEmit, useEventListener } from 'mitt-vue';
 
 export default {
   name: 'App',
@@ -61,8 +61,8 @@ export default {
     }),
   ],
   methods: {
-    emitEvent() {
-      useEventEmit('my-event', { foo: 'bar' });
+    emitEventFn() {
+      eventEmit('my-event', { foo: 'bar' });
     },
   },
 };
@@ -84,7 +84,7 @@ The function `useEventListener` works both for Options and Composition API, so y
 
 <script>
 import { ref } from 'vue';
-import { useEventEmit, useEventListener } from 'mitt-vue';
+import { useEventEmit as eventEmit, useEventListener } from 'mitt-vue';
 
 export default {
   name: 'App',
@@ -95,8 +95,8 @@ export default {
       message.value = `Event received with data: ${JSON.stringify(data)}`;
     });
 
-    function emitEvent() {
-      useEventEmit('my-event', { foo: 'bar' });
+    function emitEventFn() {
+      eventEmit('my-event', { foo: 'bar' });
     }
 
     return {
