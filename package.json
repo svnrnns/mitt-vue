@@ -9,8 +9,7 @@
   "types": "dist/index.d.ts",
   "exports": {
     "import": "./dist/mitt-vue.js",
-    "require": "./dist/mitt-vue.cjs",
-    "types": "./dist/index.d.ts"
+    "require": "./dist/mitt-vue.cjs"
   },
   "files": [
     "dist"
