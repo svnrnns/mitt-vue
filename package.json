@@ -1,29 +1,24 @@
 {
   "name": "mitt-vue",
-  "version": "2.1.3",
+  "private": false,
+  "version": "2.1.4",
   "description": "Lightweight utility for integrating mitt with Vue 2 and Vue 3",
   "license": "MIT",
   "type": "module",
   "main": "dist/mitt-vue.cjs",
   "module": "dist/mitt-vue.js",
-  "types": "dist/index.d.ts",
   "exports": {
-    "import": "./dist/mitt-vue.js",
-    "require": "./dist/mitt-vue.cjs"
+    ".": {
+      "import": "./dist/mitt-vue.js",
+      "require": "./dist/mitt-vue.cjs"
+    }
   },
   "files": [
     "dist"
   ],
-  "scripts": {
-    "dev": "vite build --watch",
-    "build": "vite build",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build",
-    "preview": "vite preview"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/svnrnns/mitt-vue"
+    "url": "git+https://github.com/svnrnns/mitt-vue.git"
   },
   "keywords": [
     "vue",
@@ -55,14 +50,31 @@
   },
   "homepage": "https://github.com/svnrnns/mitt-vue",
   "author": "seven rings (https://twitter.com/svnrnns)",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:verbose": "vitest run --reporter=verbose",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
   "dependencies": {
-    "mitt": "3.0.1",
+    "mitt": "^3",
+    "vue": "^2.6.0 || ^3.0.0"
+  },
+  "peerDependencies": {
     "vue": "^2.6.0 || ^3.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6",
-    "typescript": "^5.7.2",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.0.11",
+    "typescript": "^5.8",
     "vite": "^7",
-    "vite-plugin-dts": "^2.3.0"
+    "vite-plugin-dts": "^2.3",
+    "vitest": "^4.0.15"
   }
 }
